@@ -58,10 +58,11 @@ const Portfolio = () => {
         category: "Flayers"
     }]
     const filters = [...new Set(allProjects.map(p => p.category)), "All"];
-
+    const [selectedFilter, setSelectedFilter] = useState('All');
     const [projects, setProjects] = useState(allProjects)
 
     function onSelectFilter(filter) {
+        setSelectedFilter(filter)
         if (filter === 'All')
             setProjects(allProjects)
         else
@@ -69,8 +70,8 @@ const Portfolio = () => {
     }
 
     return (
-        <div>
-            <Toolbar filters={filters} onSelectFilter={onSelectFilter} />
+        <div className="container">
+            <Toolbar filters={filters} onSelectFilter={onSelectFilter} selectedFilter={selectedFilter}/>
             <ProjectList projects={projects} />
         </div>
     );

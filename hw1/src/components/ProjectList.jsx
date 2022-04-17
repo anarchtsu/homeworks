@@ -2,7 +2,7 @@ import React from "react";
 
 const ProjectList = ({ projects }) => {
     return (
-        <div>
+        <div className="project">
             {(projects.map(p => <img src={p.img} />))}
         </div>
     );
