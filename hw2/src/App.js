@@ -1,12 +1,9 @@
 import React from 'react';
 import json from './data/etsy.json'
+import Listing from "./components/Listing";
 
 function App() {
-    console.log(json)
-
-    return (
-        <p>hw2</p>
-    );
+    return (<Listing items={json}/>);
 }
 
 export default App;
