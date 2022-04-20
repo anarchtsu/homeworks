@@ -1,0 +1,63 @@
+/*
+Допустим div width 100px и padding left and right 20 px
+-> при content-box width -> 140, а при border-box -> сколько задали в width
+https://developer.mozilla.org/ru/docs/Web/CSS/box-sizing
+*/
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+img {
+    height: 50px;
+    width: 50px;
+}
+
+.post {
+    margin-bottom: 1rem;
+    width: 100%;
+    padding: 1rem;
+    border-radius: 3px;
+    background: white;
+}
+
+.header {
+    width: 100%;
+    padding: 1rem;
+    border-radius: 3px;
+    background: white;
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 2rem;
+}
+
+body {
+    background: lightgray;
+}
+
+.button {
+    color: white;
+    background: dodgerblue;
+    padding: 0.4rem 0.7rem;
+    border-radius: 3px;
+    display: inline-block;
+    text-decoration: none;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.button+.button {
+    margin-left: 1rem;
+}
+
+.danger {
+    background: red;
+}
+
+#root {
+    max-width: 900px;
+    width: 100%;
+    margin: 0 auto;
+}
