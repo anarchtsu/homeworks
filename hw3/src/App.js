@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import Item from "./components/Item";
+import './App.css'
 
 function App() {
     const [items, setItems] = useState([]);
@@ -9,7 +10,7 @@ function App() {
 
     function submit(e) {
         e.preventDefault()
-        const [day, month, year] = date.split('.');
+        const [year, month, day] = date.split('-');
         let dateObj = new Date(+year, month - 1, +day);
         if (dateObj instanceof Date && !isNaN(dateObj)) {
             const item = {id: items.length + 1, date:dateObj, distance: distance};
@@ -25,11 +26,11 @@ function App() {
     }
 
     return (
-        <div>
+        <div className="item">
             <form onSubmit={submit}>
                 <label htmlFor="date">Дата (ДД.ММ.ГГ)</label>
                 <input
-                    type="text"
+                    type="date"
                     id="date"
                     onChange={(e) => {
                         setDate(e.target.value)
@@ -39,7 +40,7 @@ function App() {
                 />
                 <label htmlFor="distance">Пройдено км</label>
                 <input
-                    type="text"
+                    type="number"
                     id="distance"
                     onChange={(e) => {
                         setDistance(e.target.value)
@@ -49,14 +50,16 @@ function App() {
                 />
                 <button>OK</button>
             </form>
+            <hr/>
             <br/>
-            <div>
+            <div style={{justifyContent: 'space-around', display: 'flex'}}>
                 <p>Дата (ДД.ММ.ГГ)</p>
                 <p>Пройдено км</p>
                 <p>Действия</p>
             </div>
+            <hr/>
             {(items.sort((i1, i2) => i1.date - i2.date).map(item =>
-                <Item key={item.id} id={item.id} date={item.date} distanse={item.distance} onDelete={onDelete}/>
+                <Item key={item.id} id={item.id} date={item.date} distance={item.distance} onDelete={onDelete}/>
             ))}
         </div>
     );

@@ -1,5 +1,37 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+#root {
+    max-width: 900px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+body {
+    background: lightgray;
+}
+
+.danger {
+    background: red;
+}
+
 .note {
     border: black 1px solid;
     padding: 10px;
     margin: 10px;
+    background: white;
+    border-radius: 4px;
+    position: relative;
+}
+.note .danger {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.note button {
+    border: none;
 }

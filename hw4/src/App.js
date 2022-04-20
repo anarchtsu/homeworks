@@ -37,19 +37,21 @@ function App() {
 
     return (
         <div>
-            <p>Notes</p>
-            <button onClick={e => {
-                e.preventDefault();
-                updateNotes();
-            }}>Update</button>
+            <div style={{display: 'flex'}}>
+                <h1>Notes</h1>
+                <button onClick={e => {
+                    e.preventDefault();
+                    updateNotes();
+                }} style={{borderRadius: '30px', padding: '1rem 2rem', margin: '1rem 2rem'}}>Update</button>
+            </div>
             {(notes.map(note =>
                 <div className="note" key={note.id}>
                     <p>{note.content}</p>
-                    <button onClick={e => deleteNote(e, note.id)}>X</button>
+                    <button className="danger" onClick={e => deleteNote(e, note.id)}>X</button>
                 </div>
             ))}
             <br/>
-            <p>New Note</p>
+            <h2>New Note</h2>
             <div className="note">
                 <form onSubmit={addNote}>
                     <input
@@ -61,7 +63,7 @@ function App() {
                         value={content}
                         required
                     />
-                    <button> Add</button>
+                    <button style={{marginLeft: '1rem', border: '1px solid black'}}>Add</button>
                 </form>
             </div>
         </div>
